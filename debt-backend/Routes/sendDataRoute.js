@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const userModel = require("../Models/userModel");
-const user = require("../Models/userModel");
+// const userModel = require("../Models/userModel");
+const user = require("../Models/newModel");
 
 sendData = async (req, res) => {
   const data = req.body;
@@ -8,7 +8,7 @@ sendData = async (req, res) => {
 
   console.log("in get data");
   try {
-    const response = await userModel.create(data);
+    const response = await user.create(data);
     console.log(response)
     res.send("ok")
   } catch (err) {
