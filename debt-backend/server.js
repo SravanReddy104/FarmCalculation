@@ -4,14 +4,16 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 const app = express();
-const veichleRoute = require("./Routes/addVechileRoute");
+
 
 const getDataRoute = require("./Routes/getDataRoute");
 const sendDataRoute = require("./Routes/sendDataRoute");
 const deleteRoute = require("./Routes/deleteRoute");
 const userModel = require("./Models/userModel");
-const newModel = require("./Models/newModel");
-const  getNewData  = require("./Routes/getNewData");
+const editRoute = require("./Routes/editRoute");
+
+
+
 
 
 
@@ -30,10 +32,21 @@ mongoose
   });
   
 app.use("/getData", getDataRoute);
-app.use("/addVechile", veichleRoute);
-app.use("/getNewData", getNewData);
 
 
+app.use("/edit",editRoute)
+app.get("/del", async (req,res)=>{
+  console.log("in delete data",req.body);
+
+  const id = req.body
+  try{
+  const data = await userModel.deleteMany({});
+  console.log(data)
+  res.send(data)
+  }catch(err){
+    console.log(err)
+  }
+})
 
 app.use("/sendData", sendDataRoute);
 app.use("/delete", deleteRoute);

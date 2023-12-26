@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const user = require("../Models/newModel");
+const user = require("../Models/userModel");
 
 const deleteData = async (req, res) => {
   console.log("in delete data",req.body);
@@ -10,6 +10,8 @@ const deleteData = async (req, res) => {
   res.send(data)
   }catch(err){
     console.log(err)
+    res.status(500).send("Err in deleteData")
+
   }
 };
 

@@ -2,13 +2,15 @@ const router = require("express").Router();
 const user = require("../Models/userModel");
 
 getData = async (req, res) => {
-  console.log("in get data");
+ 
   try{
   const data = await user.find({}).sort({_id:-1}) ;
-  console.log(data)
+  console.log("in get Data Success")
   res.send(data)
   }catch(err){
     console.log(err)
+    res.status(500).send("Err in getData")
+
   }
 };
 
