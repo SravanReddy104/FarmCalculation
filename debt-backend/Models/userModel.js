@@ -8,4 +8,4 @@ const userSchema = mongoose.Schema({
 },
 {timestamps:true}
 )
-module.exports = mongoose.model("batch2",userSchema)
+module.exports = mongoose.model("batch3",userSchema)
