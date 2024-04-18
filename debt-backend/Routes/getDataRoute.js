@@ -4,7 +4,8 @@ const user = require("../Models/userModel");
 getData = async (req, res) => {
  
   try{
-  const data = await user.find({}).sort({_id:-1}) ;
+   const da = Date.now();
+  const data = await user.find({date: da }).sort({_id:-1}) ;
   console.log("in get Data Success")
   res.send(data)
   }catch(err){
