@@ -5,7 +5,7 @@ getData = async (req, res) => {
  
   try{
    const da = Date.now();
-  const data = await user.find({date: da }).sort({_id:-1}) ;
+  const data = await user.find({date: da.toString() }).sort({_id:-1}) ;
   console.log("in get Data Success")
   res.send(data)
   }catch(err){
